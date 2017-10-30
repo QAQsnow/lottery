@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
 	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../layDate/laydate/theme/default/laydate.css">
 	<style type="text/css">
 	</style>
 </head>
@@ -52,15 +53,13 @@
 	<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="jquery.easyform.js"></script>
+	<script type="text/javascript" src="../layDate/laydate/laydate.js"></script>
 	<script type="text/javascript">
 			var easyform = $('#form').easyform({
 			fields : {
 				'#email' : {
 					error : '请输入邮箱',
-					email : {
-						test : 'email',
-						message : 'email格式错误'
-					}
+					isTimePlugin:true
 				},
 				'#pwd' : {
 					error : '请输入密码',
@@ -82,6 +81,16 @@
 				//return false;
 			}
 		}).removeFields('#url');//可取消某项表单验证，多项用数组
+
+
+		laydate.render({
+			elem:'#email',
+			done:function(){
+				$('#email').trigger('blur');
+
+				
+			}
+		})
 	</script>
 
 </body>
